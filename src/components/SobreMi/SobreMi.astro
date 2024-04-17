@@ -2,22 +2,23 @@
 import {skills} from '@/data/skills'
 ---
 
-<section class="min-h-screen w-full relative">
+<section class="w-full relative" data-header-nav-color="black">
+  <div class="absolute top-0 left-0 bg-gradient-to-b from-sky-200 via-transparent to-transparent w-full h-96"></div>
 
-  <div class="h-full w-full max-w-screen-xl mx-auto px-5 md:px-10">
+  <div class="h-full w-full max-w-screen-xl mx-auto px-5 md:px-10 py-40 pt-48 relative">
     <div class="flex items-center flex-col md:flex-row">
-      <div class="flex-grow md:pr-12">
-        <div class="h-52 w-52 rounded-full bg-violet-900"></div>
+      <div class="flex-grow md:pr-6 lg:pr-12 ">
+        <div class="h-60 w-60 rounded-full bg-violet-900"></div>
       </div>
-      <div class="flex-grow mt-12 md:mt-0 md:pl-12">
+      <div class="flex-grow mt-12 md:mt-0 md:pl-6 lg:pl-12 ">
         <h1 class="font-bold text-5xl md:text-7xl">Sobre mi</h1>
-        <p class="mt-5 text-slate-200">Soy un apasionado programador y desarrollador argentino. He adquirido experiencia en una variedad de tecnologías y herramientas que me permiten enfrentar desafíos y resolver problemas de manera eficiente. Tengo habilidades Full Stack y el Front End es mi punto más fuerte. Esta pasión por el mundo IT la comparto junto con mi hobby que es la música.</p>
+        <p class="mt-5 text-slate-600">Soy un apasionado programador y desarrollador argentino. He adquirido experiencia en una variedad de tecnologías y herramientas que me permiten enfrentar desafíos y resolver problemas de manera eficiente. Tengo habilidades Full Stack y el Front End es mi punto más fuerte. Esta pasión por el mundo IT la comparto junto con mi hobby que es la música.</p>
         
-        <p class="mt-5">Algunas de mis habilidades son:</p>
+        <p class="mt-5 text-slate-600">Algunas de mis habilidades son:</p>
         <div class="mt-5">
           <ul class="flex flex-wrap items-center gap-2">
             {skills.map((skill)=>(
-              <li class="px-4 py-2 bg-white rounded-full text-black text-sm flex items-center gap-2"> 
+              <li class="px-4 py-2 bg-white rounded-full text-black text-sm flex items-center gap-2 hover:shadow-lg cursor-default transition duration-200 ease-out"> 
                 <div class="w-6 h-6">
                   <Fragment set:html={skill.iconSVG} />
                 </div>

@@ -1,3 +1,22 @@
 ---
+import ShowMore from './Svelte/ShowMore.svelte'
+import ShowMoreMobile from './Svelte/ShowMoreMobile.svelte'
 ---
-<section class="min-h-screen w-full relative"></section>
+<section class="min-h-screen w-full relative">
+  <div class="w-full max-w-screen-xl mx-auto md:px-10 px-5 py-10 md:py-20">
+    <div class="hidden lg:block">
+      <h5 class="uppercase text-sm text-[#b4b5b6] pl-24 pb-10">Trabajos recientes</h5>
+      <div class="w-full h-[1px] bg-[rgba(28,29,32,0.175)]"></div>
+    </div>
+    <!-- mobile -->
+    <div class="lg:hidden">
+      <ul class="w-full">
+        <ShowMoreMobile client:load textShowMore="Ver mas" textShowLess="Ver menos"/>
+      </ul>
+    </div>
+    <!-- lg -->
+    <div class="hidden lg:block">
+      <ShowMore client:load textShowMore="Ver mas" textShowLess="Ver menos"/>
+    </div>
+  </div>
+</section>

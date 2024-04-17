@@ -1,11 +1,11 @@
 ---
 ---
 
-<header class="w-full fixed top-0 left-0 backdrop-blur z-50">
+<header id="mainHeader" class="w-full fixed top-0 left-0 backdrop-blur z-50">
   <div class="w-full max-w-screen-xl mx-auto px-5 md:px-10 py-4">
     <div class="w-full h-full flex items-center justify-between">
       <div class="text-2xl"><a href="/">✨</a></div>
-      <nav class="flex items-center text-sm">
+      <nav class="flex items-center text-sm font-medium">
         <a href="#sobre-mi" class="transition duration-300 ease-out hover:-translate-y-1 px-5 py-3 hover:bg-white/10 rounded-full">Sobre mi</a>
         <a href="#proyectos" class="transition duration-300 ease-out hover:-translate-y-1 px-5 py-3 hover:bg-white/10 rounded-full">Proyectos</a>
         <a href="#contacto" class="transition duration-300 ease-out hover:-translate-y-1 px-5 py-3 hover:bg-white/10 rounded-full">Contacto</a>
@@ -13,3 +13,26 @@
     </div>
   </div>
 </header>
+
+<script>
+  const header = document.querySelector('#mainHeader') as HTMLElement;
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px', // en cuanto se vea el elemento
+    threshold: 0.5 // porcentaje de visibilidad
+  }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const color = entry.target.getAttribute('data-header-nav-color');
+        header.style.color = color;
+      }
+    })
+  }, observerOptions)
+
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    observer.observe(section);
+  })
+</script>
