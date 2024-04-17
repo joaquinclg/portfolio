@@ -1,0 +1,26 @@
+---
+import contacts, {type allContacts} from "@/data/contacts";
+
+const year = new Date().getFullYear();
+const contact_list:allContacts[] = contacts.allContacts;
+
+---
+
+<footer class="w-full border-t border-[rgba(28,29,32,0.175)]">
+  <div class="py-10 w-full max-w-screen-xl m-auto px-5 md:px-10">
+    <div class="w-full flex justify-between items-center">
+      <p class="text-sm break-words">
+        &copy; { year } Joaquin Lucero. All rights reserved.
+      </p>
+      <ul class="flex items-center gap-4">
+        {contact_list.map(({icon,link}) => (
+          <li class="w-5 h-5">
+            <a href={link} target="_blank" rel="noopener" class="fill-black">
+              <Fragment set:html={icon} />  
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</footer>

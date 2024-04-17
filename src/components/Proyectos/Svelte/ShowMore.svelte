@@ -4,9 +4,6 @@
     import IconGithub from "@/components/icons/github.svelte";
 
     import { fade } from 'svelte/transition';
-    import { inview } from 'svelte-inview';
-
-    let isInView;
 
     let showMore = false;
     export let textShowMore;
@@ -26,15 +23,8 @@
 
 </script>
 
-<ul 
-class="w-full"
-use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
-on:change={({ detail }) => {
-isInView = detail.inView;
-}}
->
+<ul class="w-full">
 {#each  showMore ? projects : firstSix as project}
-{#if isInView}
     <li 
     class="group"
     in:fade
@@ -64,11 +54,9 @@ isInView = detail.inView;
     </div>
     <div class="w-full h-[1px] bg-[rgba(28,29,32,0.175)]"></div>
   </li>
-{/if}
 {/each}
 </ul>
 
-{#if isInView}
 <div class="mt-16 relative grid items-start justify-center group/talk"
 in:fade
 >
@@ -83,4 +71,3 @@ in:fade
         >{showMore ? textShowLess : textShowMore}</button
     >
 </div>
-{/if}
