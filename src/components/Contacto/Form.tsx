@@ -68,7 +68,6 @@ const Form = () => {
         type="email"
         wrapperClassName="flex-[1_0_auto]"
       />
-
       <Textarea
         disabled={isLoading}
         value={message}
